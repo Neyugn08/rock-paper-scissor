@@ -31,3 +31,53 @@ function user_input() {
     }
 }
 
+// The main code
+function winner() {
+    let counter = 0;
+    const MAX = 5;
+    for (i = 0; i < MAX; i++) {
+        let det = user_input();
+        let sum = det + generater_choice();
+        // determining tie
+        if (2 * det == sum) {
+            alert("Tie!");
+            continue;
+        }
+
+        if (sum == 0) {
+            if (det == 1) {
+                counter++;
+                alert("Rock beats scissor!");
+            }
+            else {
+                counter--;
+                alert("Rock beats scissor!");
+            }
+        }   
+        else if (sum == 1) {
+            if (det == 0) {
+                counter++;
+                alert("Paper beats rock!");
+            }
+            else {
+                counter--;
+                alert("Paper beats rock!");
+            }
+        }  
+        else {
+            if (det == -1) {
+                counter++;
+                alert("Scissor beats paper!");
+            }
+            else {
+                counter--;
+                alert("Scissor beats paper!");
+            }
+        }
+    }
+    if (counter > 0) {alert("You are the winner!");}
+    else if (counter < 0)  {alert("You are the loser!");}
+    else {alert("It is a tie");}
+}
+
+winner();
